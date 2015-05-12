@@ -15,10 +15,42 @@
       this.init = bind(this.init, this);
       ScreenMainMenu.__super__.constructor.apply(this, arguments);
       this.layer = new Layer({
-        backgroundColor: 'red',
+        backgroundColor: 'black',
         width: this.width,
         height: this.height
       });
+      this.layerProfile = new Layer({
+        backgroundColor: 'red',
+        x: 0,
+        y: 0,
+        width: this.width / 2,
+        height: this.height / 2
+      });
+      this.layerProfile.superLayer = this.layer;
+      this.layerProjects = new Layer({
+        backgroundColor: 'green',
+        x: this.layerProfile.width,
+        y: 0,
+        width: this.width - this.layerProfile.width,
+        height: this.height - this.layerProfile.height
+      });
+      this.layerProjects.superLayer = this.layer;
+      this.layerPersonnel = new Layer({
+        backgroundColor: 'blue',
+        x: 0,
+        y: this.layerProfile.height,
+        width: this.layerProfile.width,
+        height: this.layerProfile.height
+      });
+      this.layerPersonnel.superLayer = this.layer;
+      this.layerContact = new Layer({
+        backgroundColor: 'yellow',
+        x: this.layerProjects.width,
+        y: this.layerProjects.height,
+        width: this.layerProjects.width,
+        height: this.layerProjects.height
+      });
+      this.layerContact.superLayer = this.layer;
     }
 
     ScreenMainMenu.prototype.init = function() {
