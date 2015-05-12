@@ -1,4 +1,5 @@
 ScreenBase = require("./ScreenBase")
+Intro1Layer = require("./Intro1Layer")
 
 class Screen extends ScreenBase
     constructor: () ->
@@ -35,11 +36,21 @@ class Screen extends ScreenBase
     init: =>
 
         images = [
-            '/imported/PAI-updated/images/Intro 1.png'
-            , '/imported/PAI-updated/images/Intro 2.png'
+            # '/imported/PAI-updated/images/Intro 1.png'
+            '/imported/PAI-updated/images/Intro 2.png'
             , '/imported/PAI-updated/images/Intro 3.png'
             , '/imported/PAI-updated/images/Intro 4.png'
         ]
+
+        intro1 = new Intro1Layer
+                width: @width
+                height: @height
+                opacity: 0
+                superLayer: @layer
+
+        intro1.init()
+
+        @imageLayers.push(intro1)
 
         for image in images            
             @imageLayer = new Layer
@@ -65,7 +76,9 @@ class Screen extends ScreenBase
 
         @layer.on Events.Click, @onMainLayerClicked
 
-        
+        @fadeInAnimation.on Events.AnimationEnd, () =>
+            if @fadeInAnimation.options.layer.play
+                @fadeInAnimation.options.layer.play()
 
     onMainLayerClicked: (event, layer) =>
         if @lastTimeoutId > -1
@@ -82,11 +95,12 @@ class Screen extends ScreenBase
         nextImageIndex
 
     play: =>
-        console.log("@play called")
+        
         @layer.states.switch("visible")
 
 
         if not @isFirstTimePlayed
+            return
 
             fadeInIndex =@getNextImageIndex(@currentImageIndex)
 
@@ -96,6 +110,8 @@ class Screen extends ScreenBase
 
             @fadeOutAnimation.start()
             @fadeInAnimation.start()
+
+
 
             @lastTimeoutId = setTimeout(() =>
                     @currentImageIndex += 1
@@ -108,6 +124,7 @@ class Screen extends ScreenBase
 
             
         else
+            @imageLayers[0].play()
             @isFirstTimePlayed = false
             setTimeout(() =>                    
                     @play()
