@@ -1,3 +1,5 @@
+// FramerApp = require("./framerApp");
+
 // Ionic Starter App
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
@@ -9,7 +11,10 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
 
-    window.plugins.orientationLock.lock("landscape");
+    // if(window.plugins){
+      window.plugins.orientationLock.lock("landscape");  
+    // }
+    
 
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -20,55 +25,59 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+
+    // app = new FramerApp();
+    // app.play();
   });
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
-  $stateProvider
+  // $stateProvider
 
-  .state('app', {
-    url: "/app",
-    abstract: true,
-    templateUrl: "templates/menu.html",
-    controller: 'AppCtrl'
-  })
+  // .state('app', {
+  //   url: "/app",
+  //   abstract: true,
+  //   templateUrl: "templates/menu.html",
+  //   controller: 'AppCtrl'
+  // })
 
-  .state('app.search', {
-    url: "/search",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/search.html"
-      }
-    }
-  })
+  // .state('app.search', {
+  //   url: "/search",
+  //   views: {
+  //     'menuContent': {
+  //       templateUrl: "templates/search.html"
+  //     }
+  //   }
+  // })
 
-  .state('app.browse', {
-    url: "/browse",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/browse.html"
-      }
-    }
-  })
-    .state('app.playlists', {
-      url: "/playlists",
-      views: {
-        'menuContent': {
-          templateUrl: "templates/playlists.html",
-          controller: 'PlaylistsCtrl'
-        }
-      }
-    })
+  // .state('app.browse', {
+  //   url: "/browse",
+  //   views: {
+  //     'menuContent': {
+  //       templateUrl: "templates/browse.html"
+  //     }
+  //   }
+  // })
+  //   .state('app.playlists', {
+  //     url: "/playlists",
+  //     views: {
+  //       'menuContent': {
+  //         templateUrl: "templates/playlists.html",
+  //         controller: 'PlaylistsCtrl'
+  //       }
+  //     }
+  //   })
 
-  .state('app.single', {
-    url: "/playlists/:playlistId",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/playlist.html",
-        controller: 'PlaylistCtrl'
-      }
-    }
-  });
-  // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  // .state('app.single', {
+  //   url: "/playlists/:playlistId",
+  //   views: {
+  //     'menuContent': {
+  //       templateUrl: "templates/playlist.html",
+  //       controller: 'PlaylistCtrl'
+  //     }
+  //   }
+  // });
+  // // if none of the above states are matched, use this as the fallback
+  // $urlRouterProvider.otherwise('/app/playlists');
 });
+
