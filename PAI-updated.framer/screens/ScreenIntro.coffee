@@ -37,9 +37,9 @@ class Screen extends ScreenBase
 
         images = [
             # '/imported/PAI-updated/images/Intro 1.png'
-            '/imported/PAI-updated/images/Intro 2.png'
-            , '/imported/PAI-updated/images/Intro 3.png'
-            , '/imported/PAI-updated/images/Intro 4.png'
+            '/images/Intro 2.png'
+            , '/images/Intro 3.png'
+            , '/images/Intro 4.png'
         ]
 
         intro1 = new Intro1Layer
@@ -48,7 +48,7 @@ class Screen extends ScreenBase
                 opacity: 0
                 superLayer: @layer
 
-        intro1.init()
+        intro1.init()        
 
         @imageLayers.push(intro1)
 
@@ -77,15 +77,27 @@ class Screen extends ScreenBase
         @layer.on Events.Click, @onMainLayerClicked
 
         @fadeInAnimation.on Events.AnimationEnd, () =>
-            if @fadeInAnimation.options.layer.play
-                @fadeInAnimation.options.layer.play()
+            # if @fadeInAnimation.options.layer.play
+            #     @fadeInAnimation.options.layer.play()
 
-    onMainLayerClicked: (event, layer) =>
-        if @lastTimeoutId > -1
+    destroy: () =>
+
+        # for layer in @imageLayers
+        #     layer.destroy()
+        
+
+        if @lastTimeoutId > -1            
             clearTimeout(@lastTimeoutId)
+            @lastTimeoutId = -1
         @layer.destroy()
+
+        @layer = null
         if(@onExit)
             @onExit()
+            @onExit = null
+
+    onMainLayerClicked: (event, layer) =>
+        @destroy()
 
     getNextImageIndex: (currentImageIndex) =>
         nextImageIndex = currentImageIndex + 1
@@ -100,7 +112,6 @@ class Screen extends ScreenBase
 
 
         if not @isFirstTimePlayed
-            return
 
             fadeInIndex =@getNextImageIndex(@currentImageIndex)
 
@@ -118,17 +129,20 @@ class Screen extends ScreenBase
                     if @currentImageIndex >= @imageLayers.length
                         @currentImageIndex = 0
                     @play()
-                , 5000)
+                , 7000)
 
 
 
             
         else
+            @imageLayers[0].onAnimationEnd = () =>
+                setTimeout(() =>
+                        @play()
+                    , 2000)
+                
             @imageLayers[0].play()
             @isFirstTimePlayed = false
-            setTimeout(() =>                    
-                    @play()
-                , 3000)
+            
 
 
     center: =>

@@ -7,6 +7,7 @@ intro = new ScreenIntro()
 intro.init()
 
 intro.onExit = () =>
+    intro = null
     mainMenu = new ScreenMainMenu()
     mainMenu.init()
     mainMenu.play()

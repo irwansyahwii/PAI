@@ -17,6 +17,7 @@
       this.play = bind(this.play, this);
       this.getNextImageIndex = bind(this.getNextImageIndex, this);
       this.onMainLayerClicked = bind(this.onMainLayerClicked, this);
+      this.destroy = bind(this.destroy, this);
       this.init = bind(this.init, this);
       Screen.__super__.constructor.apply(this, arguments);
       this.onExit = null;
@@ -44,7 +45,7 @@
 
     Screen.prototype.init = function() {
       var i, image, images, intro1, len;
-      images = ['/imported/PAI-updated/images/Intro 2.png', '/imported/PAI-updated/images/Intro 3.png', '/imported/PAI-updated/images/Intro 4.png'];
+      images = ['/images/Intro 2.png', '/images/Intro 3.png', '/images/Intro 4.png'];
       intro1 = new Intro1Layer({
         width: this.width,
         height: this.height,
@@ -78,22 +79,25 @@
       this.layer.center();
       this.layer.on(Events.Click, this.onMainLayerClicked);
       return this.fadeInAnimation.on(Events.AnimationEnd, (function(_this) {
-        return function() {
-          if (_this.fadeInAnimation.options.layer.play) {
-            return _this.fadeInAnimation.options.layer.play();
-          }
-        };
+        return function() {};
       })(this));
     };
 
-    Screen.prototype.onMainLayerClicked = function(event, layer) {
+    Screen.prototype.destroy = function() {
       if (this.lastTimeoutId > -1) {
         clearTimeout(this.lastTimeoutId);
+        this.lastTimeoutId = -1;
       }
       this.layer.destroy();
+      this.layer = null;
       if (this.onExit) {
-        return this.onExit();
+        this.onExit();
+        return this.onExit = null;
       }
+    };
+
+    Screen.prototype.onMainLayerClicked = function(event, layer) {
+      return this.destroy();
     };
 
     Screen.prototype.getNextImageIndex = function(currentImageIndex) {
@@ -109,7 +113,6 @@
       var fadeInIndex;
       this.layer.states["switch"]("visible");
       if (!this.isFirstTimePlayed) {
-        return;
         fadeInIndex = this.getNextImageIndex(this.currentImageIndex);
         this.fadeInAnimation.options.layer = this.imageLayers[fadeInIndex];
         this.fadeOutAnimation.options.layer = this.imageLayers[this.currentImageIndex];
@@ -123,15 +126,17 @@
             }
             return _this.play();
           };
-        })(this), 5000);
+        })(this), 7000);
       } else {
-        this.imageLayers[0].play();
-        this.isFirstTimePlayed = false;
-        return setTimeout((function(_this) {
+        this.imageLayers[0].onAnimationEnd = (function(_this) {
           return function() {
-            return _this.play();
+            return setTimeout(function() {
+              return _this.play();
+            }, 2000);
           };
-        })(this), 3000);
+        })(this);
+        this.imageLayers[0].play();
+        return this.isFirstTimePlayed = false;
       }
     };
 

@@ -14,6 +14,7 @@
 
   intro.onExit = (function(_this) {
     return function() {
+      intro = null;
       mainMenu = new ScreenMainMenu();
       mainMenu.init();
       return mainMenu.play();

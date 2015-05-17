@@ -9,8 +9,9 @@
     extend(Intro1Layer, superClass);
 
     Intro1Layer.prototype.initLayerWe = function() {
+      this.onAnimationEnd = null;
       this.layerWe = new Layer({
-        image: '/imported/PAI-updated/images/Intro-1-We.png',
+        image: '/images/Intro-1-We.png',
         x: 82.92,
         y: 197.4,
         width: 107,
@@ -47,13 +48,15 @@
     function Intro1Layer(options) {
       this.play = bind(this.play, this);
       this.init = bind(this.init, this);
+      this.initLayerParagraph1 = bind(this.initLayerParagraph1, this);
+      this.initLayerSpace = bind(this.initLayerSpace, this);
       this.onLayerWeAnimationFadeInEnded = bind(this.onLayerWeAnimationFadeInEnded, this);
       this.onLayerWeAnimationFadeInStarted = bind(this.onLayerWeAnimationFadeInStarted, this);
       this.onLayerWeAnimationRotateEnded = bind(this.onLayerWeAnimationRotateEnded, this);
       this.initLayerCreate = bind(this.initLayerCreate, this);
       this.initLayerWe = bind(this.initLayerWe, this);
       Intro1Layer.__super__.constructor.call(this, {
-        image: '/imported/PAI-updated/images/Intro-1.png',
+        image: '/images/Intro-1.png',
         width: options.width,
         height: options.height,
         opacity: options.opacity
@@ -101,11 +104,9 @@
       return this.layerCreateSizeAnimation.start();
     };
 
-    Intro1Layer.prototype.init = function() {
-      this.initLayerWe();
-      this.initLayerCreate();
+    Intro1Layer.prototype.initLayerSpace = function() {
       this.layerSpace = new Layer({
-        image: '/imported/PAI-updated/images/Intro-1-Space.png',
+        image: '/images/Intro-1-Space.png',
         x: this.layerCreate.x,
         y: Screen.height + (Screen.height / 3),
         width: 250,
@@ -138,10 +139,50 @@
       return this.layerSpace.on(Events.StateDidSwitch, (function(_this) {
         return function(a, stateName) {
           if (stateName !== 'stateFinal') {
-            return _this.layerSpace.states.next();
+            _this.layerSpace.states.next();
+          }
+          if (stateName === 'stateFinal') {
+            return _this.layerParagraph1.states.next();
           }
         };
       })(this));
+    };
+
+    Intro1Layer.prototype.initLayerParagraph1 = function() {
+      this.layerParagraph1 = new Layer({
+        image: '/images/Intro-1-Paragraph1.png',
+        x: this.layerCreate.x + (1600 * this.layerWe.scaleX),
+        y: this.layerCreate.y + (100 * this.layerWe.scaleY),
+        width: 497,
+        height: 195,
+        opacity: 0
+      });
+      this.layerParagraph1.superLayer = this;
+      this.layerParagraph1.originX = 0;
+      this.layerParagraph1.originY = 0;
+      this.layerParagraph1.scaleX = this.layerWe.scaleX;
+      this.layerParagraph1.scaleY = this.layerWe.scaleY;
+      this.layerParagraph1.states.add({
+        stateFinal: {
+          opacity: 1
+        }
+      });
+      return this.layerParagraph1.on(Events.StateDidSwitch, (function(_this) {
+        return function(e, stateName) {
+          if (stateName === "stateFinal") {
+            if (_this.onAnimationEnd) {
+              return _this.onAnimationEnd();
+            }
+          }
+        };
+      })(this));
+    };
+
+    Intro1Layer.prototype.init = function() {
+      this.initLayerWe();
+      this.initLayerCreate();
+      this.initLayerSpace();
+      return this.initLayerParagraph1();
     };
 
     Intro1Layer.prototype.play = function() {
