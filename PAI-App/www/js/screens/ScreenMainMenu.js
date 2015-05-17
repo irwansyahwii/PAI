@@ -54,7 +54,8 @@
     }
 
     ScreenMainMenu.prototype.init = function() {
-      return this.layer.center();
+      this.layer.center();
+      return this.immersiveMode();
     };
 
     ScreenMainMenu.prototype.play = function() {};

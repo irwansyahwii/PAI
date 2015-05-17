@@ -5,7 +5,7 @@
 
   ScreenIntro = require("./screens/ScreenIntro_1024_614");
 
-  ScreenMainMenu = require("./screens/ScreenMainMenu");
+  ScreenMainMenu = require("./screens/ScreenMainMenu_1024_641");
 
   App = (function() {
     function App() {
@@ -18,6 +18,7 @@
       intro = new ScreenIntro();
       intro.onExit = (function(_this) {
         return function() {
+          intro.destroy();
           intro = null;
           mainMenu = new ScreenMainMenu();
           mainMenu.init();

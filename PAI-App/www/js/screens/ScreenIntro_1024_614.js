@@ -21,27 +21,11 @@
     extend(ScreenIntro_1024_614, superClass);
 
     function ScreenIntro_1024_614() {
-      this.show = bind(this.show, this);
-      this.hide = bind(this.hide, this);
-      this.hideWithTransition = bind(this.hideWithTransition, this);
       this.play = bind(this.play, this);
       this.onMainLayerClicked = bind(this.onMainLayerClicked, this);
       this.init = bind(this.init, this);
       this.createIntroLayers = bind(this.createIntroLayers, this);
       ScreenIntro_1024_614.__super__.constructor.apply(this, arguments);
-      this.mainLayer = new Layer({
-        width: this.width,
-        height: this.height,
-        backgroundColor: 'white'
-      });
-      this.mainLayer.states.add({
-        hidden: {
-          opacity: 0
-        },
-        show: {
-          opacity: 1
-        }
-      });
       this.intro_layers = new RoundCollection();
       this.is_stop_all_animations = false;
       this.onExit = null;
@@ -96,9 +80,8 @@
     };
 
     ScreenIntro_1024_614.prototype.init = function() {
+      ScreenIntro_1024_614.__super__.init.apply(this, arguments);
       this.createIntroLayers();
-      this.mainLayer.center();
-      this.hide();
       return this.mainLayer.on(Events.Click, this.onMainLayerClicked);
     };
 
@@ -113,18 +96,6 @@
     ScreenIntro_1024_614.prototype.play = function() {
       this.show();
       return this.intro_layers.current().play();
-    };
-
-    ScreenIntro_1024_614.prototype.hideWithTransition = function() {
-      return this.mainLayer.states["switch"]("hidden");
-    };
-
-    ScreenIntro_1024_614.prototype.hide = function() {
-      return this.mainLayer.states.switchInstant("hidden");
-    };
-
-    ScreenIntro_1024_614.prototype.show = function() {
-      return this.mainLayer.states.switchInstant("show");
     };
 
     return ScreenIntro_1024_614;

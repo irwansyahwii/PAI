@@ -26,5 +26,8 @@
   ],
   "cordovaPlatforms": [
     "android"
-  ]
+  ],
+  "browser": {
+    "ngCordova": "./www/lib/ngCordova/dist/ng-cordova.min.js"
+  }
 }

@@ -11,24 +11,21 @@
     extend(Intro1Layer_1024_614, superClass);
 
     function Intro1Layer_1024_614(options) {
-      this.hideWithTransition = bind(this.hideWithTransition, this);
-      this.showWithTransition = bind(this.showWithTransition, this);
-      this.show = bind(this.show, this);
+      this.play = bind(this.play, this);
       options = options || {};
       options.BGImage = "img/Intro-1-BG.png";
       Intro1Layer_1024_614.__super__.constructor.call(this, options);
+      this.is_start = true;
     }
 
-    Intro1Layer_1024_614.prototype.show = function() {
-      return this.mainLayer.states.switchInstant("show");
-    };
-
-    Intro1Layer_1024_614.prototype.showWithTransition = function() {
-      return this.mainLayer.states["switch"]("show");
-    };
-
-    Intro1Layer_1024_614.prototype.hideWithTransition = function() {
-      return this.mainLayer.states["switch"]("hidden");
+    Intro1Layer_1024_614.prototype.play = function() {
+      if (this.is_start) {
+        this.is_start = false;
+        this.show();
+        return Intro1Layer_1024_614.__super__.play.apply(this, arguments);
+      } else {
+        return Intro1Layer_1024_614.__super__.play.apply(this, arguments);
+      }
     };
 
     return Intro1Layer_1024_614;

@@ -9,17 +9,6 @@ class ScreenIntro_1024_614 extends ScreenBase
 
     constructor: () ->
         super
-        @mainLayer = new Layer
-            width: @width
-            height: @height
-            backgroundColor: 'white'
-
-        @mainLayer.states.add
-            hidden: 
-                opacity: 0
-
-            show:
-                opacity: 1
 
         @intro_layers = new RoundCollection()
 
@@ -74,9 +63,10 @@ class ScreenIntro_1024_614 extends ScreenBase
 
 
     init: () =>
-        @createIntroLayers()
-        @mainLayer.center()
-        @hide()
+        super
+
+        @createIntroLayers()        
+        # @hide()
 
         @mainLayer.on Events.Click, @onMainLayerClicked
 
@@ -90,14 +80,6 @@ class ScreenIntro_1024_614 extends ScreenBase
         @show()
         @intro_layers.current().play()
 
-    hideWithTransition: () =>
-        @mainLayer.states.switch("hidden")
-
-    hide: () =>
-        @mainLayer.states.switchInstant("hidden")
-
-    show: () =>
-        @mainLayer.states.switchInstant("show")
         
 
 module.exports =  ScreenIntro_1024_614

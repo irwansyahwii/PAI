@@ -8,6 +8,18 @@ class Intro1Layer_1024_614 extends IntroLayerBase
 
         super(options)
 
+        @is_start = true
+
+    play: () =>
+        if(@is_start)
+            @is_start = false
+            @show()
+
+            super
+        else
+            super
+
+
 
 
 module.exports = Intro1Layer_1024_614

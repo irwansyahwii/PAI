@@ -48,6 +48,8 @@ class ScreenMainMenu extends ScreenBase
     init: =>
         @layer.center()
 
+        @immersiveMode()
+
     play: () =>
         
 

@@ -1,7 +1,7 @@
 
 
 ScreenIntro = require "./screens/ScreenIntro_1024_614"
-ScreenMainMenu = require "./screens/ScreenMainMenu"
+ScreenMainMenu = require "./screens/ScreenMainMenu_1024_641"
 
 class App
     play: () =>
@@ -11,6 +11,7 @@ class App
         
 
         intro.onExit = () =>
+            intro.destroy()
             intro = null
             mainMenu = new ScreenMainMenu()
             mainMenu.init()

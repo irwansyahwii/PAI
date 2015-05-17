@@ -41,8 +41,6 @@ class IntroLayerBase extends Layer
     onMainLayerStateDidSwitch: (e, stateName) =>
         if stateName is "play"            
             @onPlayEnds()
-            
-
 
     show: () =>
         @mainLayer.states.switchInstant("show")
