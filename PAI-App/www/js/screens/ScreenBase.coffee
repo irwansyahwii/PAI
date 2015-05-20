@@ -6,7 +6,7 @@ class ScreenBase
         @mainLayer = new Layer
             width: @width
             height: @height
-            backgroundColor: 'white'
+            backgroundColor: 'black'
 
         @mainLayer.states.add
             hidden: 

@@ -7,9 +7,11 @@ class IntroLayerBase extends Layer
         @mainLayer = @
 
         @mainLayer.width = options.width
-        @mainLayer.height = options.height        
+        @mainLayer.height = options.height  
+        @mainLayer.backgroundColor = options.backgroundColor || 'white'      
 
         @mainLayer.on Events.StateDidSwitch, @onMainLayerStateDidSwitch
+        @mainLayer.on Events.AnimationEnd, @onMainLayerAnimationEnd
 
         if superLayer
             @mainLayer.superLayer = superLayer
@@ -35,15 +37,24 @@ class IntroLayerBase extends Layer
 
         @onPlayEnds = null
 
+        @currentState = ""
+        @isPlayCalled = false
+
     init: () =>
         @mainLayer.hide()
 
-    onMainLayerStateDidSwitch: (e, stateName) =>
-        if stateName is "play"            
+    onMainLayerAnimationEnd: () =>
+        if @currentState is "play"            
             @onPlayEnds()
+
+    onMainLayerStateDidSwitch: (e, stateName) =>
+        if stateName is "play"
+            @onPlayEnds()
+
 
     show: () =>
         @mainLayer.states.switchInstant("show")
+        @mainLayer.center()
 
     hide: () =>
         @mainLayer.states.switchInstant("hidden")
@@ -55,6 +66,7 @@ class IntroLayerBase extends Layer
         @mainLayer.states.switch("hidden")
 
     play: () =>
+        @isPlayCalled = true
         @mainLayer.states.switch("play")
 
 

@@ -11,7 +11,7 @@
 
     function Intro4Layer_1024_614(options) {
       options = options || {};
-      options.BGImage = "img/Intro-4-BG.png";
+      options.BGImage = "images/Intro-4-BG.png";
       Intro4Layer_1024_614.__super__.constructor.call(this, options);
     }
 

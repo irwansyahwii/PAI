@@ -9,13 +9,13 @@
 
   RoundCollection = require("./RoundCollection");
 
-  Intro1Layer = require("./Intro1Layer_1024_614");
+  Intro1Layer = require("./Intro1LayerWithAnimation_1024_614");
 
-  Intro2Layer = require("./Intro2Layer_1024_614");
+  Intro2Layer = require("./Intro2LayerWithAnimation_1024_614");
 
-  Intro3Layer = require("./Intro3Layer_1024_614");
+  Intro3Layer = require("./Intro3LayerWithAnimation_1024_614");
 
-  Intro4Layer = require("./Intro4Layer_1024_614");
+  Intro4Layer = require("./Intro4LayerWithAnimation_1024_614");
 
   ScreenIntro_1024_614 = (function(superClass) {
     extend(ScreenIntro_1024_614, superClass);
@@ -66,12 +66,8 @@
         results.push(layer.onPlayEnds = (function(_this) {
           return function() {
             if (!_this.is_stop_all_animations) {
-              setTimeout(function() {
-                return _this.intro_layers.current().hideWithTransition();
-              }, 2000);
-              return setTimeout(function() {
-                return _this.intro_layers.next().play();
-              }, 2000);
+              _this.intro_layers.current().hideWithTransition();
+              return _this.intro_layers.next().play();
             }
           };
         })(this));

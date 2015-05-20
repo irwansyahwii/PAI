@@ -1,9 +1,9 @@
 ScreenBase = require("./ScreenBase")
 RoundCollection = require("./RoundCollection")
-Intro1Layer = require("./Intro1Layer_1024_614")
-Intro2Layer = require("./Intro2Layer_1024_614")
-Intro3Layer = require("./Intro3Layer_1024_614")
-Intro4Layer = require("./Intro4Layer_1024_614")
+Intro1Layer = require("./Intro1LayerWithAnimation_1024_614")
+Intro2Layer = require("./Intro2LayerWithAnimation_1024_614")
+Intro3Layer = require("./Intro3LayerWithAnimation_1024_614")
+Intro4Layer = require("./Intro4LayerWithAnimation_1024_614")
 
 class ScreenIntro_1024_614 extends ScreenBase
 
@@ -52,13 +52,15 @@ class ScreenIntro_1024_614 extends ScreenBase
             console.log(layer.BGLayer.image)
             layer.onPlayEnds = () =>
                 if not @is_stop_all_animations
-                    setTimeout(() => 
-                            @intro_layers.current().hideWithTransition()
-                        , 2000)
+                    @intro_layers.current().hideWithTransition()
+                    @intro_layers.next().play()
+                    # setTimeout(() => 
+                    #         @intro_layers.current().hideWithTransition()
+                    #     , 2000)
 
-                    setTimeout(() =>
-                            @intro_layers.next().play()
-                        , 2000)
+                    # setTimeout(() =>
+                    #         @intro_layers.next().play()
+                    #     , 4000)
                 
 
 

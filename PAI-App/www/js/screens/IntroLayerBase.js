@@ -15,6 +15,7 @@
       this.hide = bind(this.hide, this);
       this.show = bind(this.show, this);
       this.onMainLayerStateDidSwitch = bind(this.onMainLayerStateDidSwitch, this);
+      this.onMainLayerAnimationEnd = bind(this.onMainLayerAnimationEnd, this);
       this.init = bind(this.init, this);
       var superLayer;
       IntroLayerBase.__super__.constructor.call(this, options);
@@ -22,7 +23,9 @@
       this.mainLayer = this;
       this.mainLayer.width = options.width;
       this.mainLayer.height = options.height;
+      this.mainLayer.backgroundColor = options.backgroundColor || 'white';
       this.mainLayer.on(Events.StateDidSwitch, this.onMainLayerStateDidSwitch);
+      this.mainLayer.on(Events.AnimationEnd, this.onMainLayerAnimationEnd);
       if (superLayer) {
         this.mainLayer.superLayer = superLayer;
       }
@@ -48,10 +51,18 @@
       this.BGLayer.superLayer = this.mainLayer;
       this.BGLayer.center();
       this.onPlayEnds = null;
+      this.currentState = "";
+      this.isPlayCalled = false;
     }
 
     IntroLayerBase.prototype.init = function() {
       return this.mainLayer.hide();
+    };
+
+    IntroLayerBase.prototype.onMainLayerAnimationEnd = function() {
+      if (this.currentState === "play") {
+        return this.onPlayEnds();
+      }
     };
 
     IntroLayerBase.prototype.onMainLayerStateDidSwitch = function(e, stateName) {
@@ -61,7 +72,8 @@
     };
 
     IntroLayerBase.prototype.show = function() {
-      return this.mainLayer.states.switchInstant("show");
+      this.mainLayer.states.switchInstant("show");
+      return this.mainLayer.center();
     };
 
     IntroLayerBase.prototype.hide = function() {
@@ -77,6 +89,7 @@
     };
 
     IntroLayerBase.prototype.play = function() {
+      this.isPlayCalled = true;
       return this.mainLayer.states["switch"]("play");
     };
 

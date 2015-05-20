@@ -16,7 +16,7 @@
       this.mainLayer = new Layer({
         width: this.width,
         height: this.height,
-        backgroundColor: 'white'
+        backgroundColor: 'black'
       });
       this.mainLayer.states.add({
         hidden: {

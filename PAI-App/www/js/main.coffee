@@ -2,8 +2,6 @@ require("ngCordova")
 
 FramerApp = require("./framerApp")
 
-app = new FramerApp()
-app.play()
 
 
 main_module =  angular.module('starter', ['ionic', "ngCordova"])
@@ -16,12 +14,12 @@ main_module.run(($ionicPlatform, $cordovaStatusbar, $cordovaSplashscreen) =>
                 # alert('$ionicPlatform.ready')
 
                 if window.cordova
-                    $cordovaStatusbar.hide()
+                    # $cordovaStatusbar.hide()
 
                     # $cordovaSplashscreen.hide()
 
-                    if window.plugins and window.plugins.orientationLock
-                        window.plugins.orientationLock.lock("landscape")    
+                    # if window.plugins and window.plugins.orientationLock
+                        # window.plugins.orientationLock.lock("landscape")    
                     if window.cordova and window.cordova.plugins.Keyboard
                         cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true)
                     
@@ -37,6 +35,9 @@ main_module.run(($ionicPlatform, $cordovaStatusbar, $cordovaSplashscreen) =>
 
                 # if window.AndroidFullScreen
                 #     AndroidFullScreen.immersiveMode()
+
+                app = new FramerApp()
+                app.play()
 
             )
     )

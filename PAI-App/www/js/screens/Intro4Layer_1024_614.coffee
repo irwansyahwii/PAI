@@ -4,7 +4,7 @@ class Intro4Layer_1024_614 extends IntroLayerBase
     constructor: (options) ->
         options = options || {}
 
-        options.BGImage = "img/Intro-4-BG.png"
+        options.BGImage = "images/Intro-4-BG.png"
 
         super(options)
 
