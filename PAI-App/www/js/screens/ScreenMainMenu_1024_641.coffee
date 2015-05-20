@@ -8,7 +8,7 @@ class ScreenMainMenu_1024_641 extends ScreenBase
         super
 
         @topBarLayer = new Layer
-            image: 'img/TopBarWithLogo.png'
+            image: 'images/TopBarWithLogo.png'
             width: @width
             height: 82
 
@@ -16,28 +16,28 @@ class ScreenMainMenu_1024_641 extends ScreenBase
         @topBarLayer.centerX()
 
         @profileLayer = new Layer
-            image: 'img/MainMenu-Profile.png'
+            image: 'images/MainMenu-Profile.png'
             width: 514
             height: 269
 
         @profileLayer.superLayer = @mainLayer        
 
         @personnelLayer = new Layer
-            image: 'img/MainMenu-Personnel.png'
+            image: 'images/MainMenu-Personnel.png'
             width: 512
             height: 268
 
         @personnelLayer.superLayer = @mainLayer
 
         @projectsLayer = new Layer
-            image: 'img/MainMenu-Projects.png'
+            image: 'images/MainMenu-Projects.png'
             width: 514
             height: 268
 
         @projectsLayer.superLayer = @mainLayer
 
         @contactLayer = new Layer
-            image: 'img/MainMenu-Contact.png'
+            image: 'images/MainMenu-Contact.png'
             width: 514
             height: 268
 

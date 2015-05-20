@@ -27,32 +27,32 @@
       this.initContactLayer = bind(this.initContactLayer, this);
       ScreenMainMenu_1024_641.__super__.constructor.apply(this, arguments);
       this.topBarLayer = new Layer({
-        image: 'img/TopBarWithLogo.png',
+        image: 'images/TopBarWithLogo.png',
         width: this.width,
         height: 82
       });
       this.topBarLayer.superLayer = this.mainLayer;
       this.topBarLayer.centerX();
       this.profileLayer = new Layer({
-        image: 'img/MainMenu-Profile.png',
+        image: 'images/MainMenu-Profile.png',
         width: 514,
         height: 269
       });
       this.profileLayer.superLayer = this.mainLayer;
       this.personnelLayer = new Layer({
-        image: 'img/MainMenu-Personnel.png',
+        image: 'images/MainMenu-Personnel.png',
         width: 512,
         height: 268
       });
       this.personnelLayer.superLayer = this.mainLayer;
       this.projectsLayer = new Layer({
-        image: 'img/MainMenu-Projects.png',
+        image: 'images/MainMenu-Projects.png',
         width: 514,
         height: 268
       });
       this.projectsLayer.superLayer = this.mainLayer;
       this.contactLayer = new Layer({
-        image: 'img/MainMenu-Contact.png',
+        image: 'images/MainMenu-Contact.png',
         width: 514,
         height: 268
       });
