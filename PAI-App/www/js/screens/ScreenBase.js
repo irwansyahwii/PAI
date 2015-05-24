@@ -11,8 +11,8 @@
       this.hide = bind(this.hide, this);
       this.hideWithTransition = bind(this.hideWithTransition, this);
       this.init = bind(this.init, this);
-      this.width = 1024;
-      this.height = 600;
+      this.width = 1067;
+      this.height = 584;
       this.mainLayer = new Layer({
         width: this.width,
         height: this.height,

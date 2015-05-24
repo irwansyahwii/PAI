@@ -41,7 +41,7 @@
         }
       });
       this.mainLayer.states.animationOptions = {
-        time: 3
+        time: 4
       };
       this.BGLayer = new Layer({
         image: options.BGImage,

@@ -24,6 +24,7 @@
       this.play = bind(this.play, this);
       this.onMainLayerClicked = bind(this.onMainLayerClicked, this);
       this.init = bind(this.init, this);
+      this.subscribeLayerEvents = bind(this.subscribeLayerEvents, this);
       this.createIntroLayers = bind(this.createIntroLayers, this);
       ScreenIntro_1024_614.__super__.constructor.apply(this, arguments);
       this.intro_layers = new RoundCollection();
@@ -32,7 +33,6 @@
     }
 
     ScreenIntro_1024_614.prototype.createIntroLayers = function() {
-      var i, layer, len, ref, results;
       this.intro1_layer = new Intro1Layer({
         superLayer: this.mainLayer,
         width: this.width,
@@ -57,12 +57,16 @@
         height: this.height
       });
       this.intro_layers.add(this.intro4_layer);
+      return this.subscribeLayerEvents();
+    };
+
+    ScreenIntro_1024_614.prototype.subscribeLayerEvents = function() {
+      var i, layer, len, ref, results;
       ref = this.intro_layers.list;
       results = [];
       for (i = 0, len = ref.length; i < len; i++) {
         layer = ref[i];
         layer.init();
-        console.log(layer.BGLayer.image);
         results.push(layer.onPlayEnds = (function(_this) {
           return function() {
             if (!_this.is_stop_all_animations) {

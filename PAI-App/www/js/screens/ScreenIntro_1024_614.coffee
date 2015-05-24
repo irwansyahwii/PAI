@@ -47,9 +47,13 @@ class ScreenIntro_1024_614 extends ScreenBase
 
         @intro_layers.add @intro4_layer
 
+        @subscribeLayerEvents()
+
+    subscribeLayerEvents: () =>
+
         for layer in @intro_layers.list
             layer.init()
-            console.log(layer.BGLayer.image)
+            # console.log(layer.BGLayer.image)
             layer.onPlayEnds = () =>
                 if not @is_stop_all_animations
                     @intro_layers.current().hideWithTransition()

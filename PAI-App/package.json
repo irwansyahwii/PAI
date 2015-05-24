@@ -7,6 +7,7 @@
     , "serve": "ionic serve"
     , "apk" : "ionic build android"
     , "device": "adb install -r platforms/android/build/outputs/apk/android-debug.apk"
+    , "deploy": "npm run build && sudo npm run apk && npm run device"
   },
   "dependencies": {
     "gulp": "^3.5.6",

@@ -3,9 +3,9 @@
   var App, ScreenIntro, ScreenMainMenu,
     bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
-  ScreenIntro = require("./screens/ScreenIntro_1024_614");
+  ScreenIntro = require("./screens/ScreenIntro_1067x584");
 
-  ScreenMainMenu = require("./screens/ScreenMainMenu_1024_641");
+  ScreenMainMenu = require("./screens/ScreenMainMenu_1067x584");
 
   App = (function() {
     function App() {

@@ -36,8 +36,18 @@ main_module.run(($ionicPlatform, $cordovaStatusbar, $cordovaSplashscreen) =>
                 # if window.AndroidFullScreen
                 #     AndroidFullScreen.immersiveMode()
 
+                # if window.AndroidFullScreen
+
+                #     AndroidFullScreen.immersiveMode(=>
+                #             app = new FramerApp()
+                #             app.play()
+                        
+                #         , =>
+                #             )
+                # else
                 app = new FramerApp()
                 app.play()
+
 
             )
     )

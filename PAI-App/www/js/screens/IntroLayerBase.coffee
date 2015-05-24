@@ -24,7 +24,7 @@ class IntroLayerBase extends Layer
 
 
         @mainLayer.states.animationOptions = 
-            time: 3
+            time: 4
 
         @BGLayer = new Layer
             image: options.BGImage

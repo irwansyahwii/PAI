@@ -1,7 +1,10 @@
 class ScreenBase
     constructor: () ->
-        @width = 1024
-        @height = 600
+        @width = 1067
+        @height = 584
+
+        # @width = 1100
+        # @height = 716
 
         @mainLayer = new Layer
             width: @width
