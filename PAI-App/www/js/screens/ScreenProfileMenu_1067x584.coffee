@@ -61,6 +61,11 @@ class ScreenMainMenu_1067x584 extends ScreenBase
 
         @philosophyButton.superLayer = @mainLayer
 
+        @afterFirmDescriptionButtonClicked = null
+        @afterPhilosophyButtonClicked = null
+
+        @afterBackButtonClicked = null
+
 
     init: () =>
         super
@@ -125,12 +130,20 @@ class ScreenMainMenu_1067x584 extends ScreenBase
 
 
     onBackButtonClicked: () =>
+        @hideAllLayers()
+        if @afterBackButtonClicked isnt null            
+            @afterBackButtonClicked(@)
+
 
     onFirmDescriptionButtonClicked: () =>
         @hideAllLayers()
+        if @afterFirmDescriptionButtonClicked isnt null
+            @afterFirmDescriptionButtonClicked(@)
 
     onPhilosophyButtonClicked: () =>
         @hideAllLayers()
+        if @afterPhilosophyButtonClicked isnt null
+            @afterPhilosophyButtonClicked(@)
 
 
     play: () =>

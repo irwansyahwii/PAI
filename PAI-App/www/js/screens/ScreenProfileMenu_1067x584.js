@@ -64,6 +64,9 @@
         height: 236
       });
       this.philosophyButton.superLayer = this.mainLayer;
+      this.afterFirmDescriptionButtonClicked = null;
+      this.afterPhilosophyButtonClicked = null;
+      this.afterBackButtonClicked = null;
     }
 
     ScreenMainMenu_1067x584.prototype.init = function() {
@@ -127,14 +130,25 @@
       return this.philosophyButton.states["switch"]("right_outside");
     };
 
-    ScreenMainMenu_1067x584.prototype.onBackButtonClicked = function() {};
+    ScreenMainMenu_1067x584.prototype.onBackButtonClicked = function() {
+      this.hideAllLayers();
+      if (this.afterBackButtonClicked !== null) {
+        return this.afterBackButtonClicked(this);
+      }
+    };
 
     ScreenMainMenu_1067x584.prototype.onFirmDescriptionButtonClicked = function() {
-      return this.hideAllLayers();
+      this.hideAllLayers();
+      if (this.afterFirmDescriptionButtonClicked !== null) {
+        return this.afterFirmDescriptionButtonClicked(this);
+      }
     };
 
     ScreenMainMenu_1067x584.prototype.onPhilosophyButtonClicked = function() {
-      return this.hideAllLayers();
+      this.hideAllLayers();
+      if (this.afterPhilosophyButtonClicked !== null) {
+        return this.afterPhilosophyButtonClicked(this);
+      }
     };
 
     ScreenMainMenu_1067x584.prototype.play = function() {
