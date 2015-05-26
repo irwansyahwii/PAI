@@ -2,15 +2,21 @@ ScreenBase = require("./ScreenBase")
 
 ClickEffect = require("./ClickEffect")
 
+curvemove = 'cubic-bezier(0.4, 0, 0.2, 1)'
+curvein = 'cubic-bezier(0, 0, 0.2, 1)'
+curveout = 'cubic-bezier(0.4, 0, 1, 1)'
+
+
 class ScreenMainMenu_1024_641 extends ScreenBase
     constructor: () ->
 
         super
 
         @topBarLayer = new Layer
-            image: 'images/TopBarWithLogo.png'
-            width: @width
-            height: 82
+            # image: 'images/TopBarWithLogo.png'
+            backgroundColor: '#2c2b27'
+            width: @width 
+            height: 88
 
         @topBarLayer.superLayer = @mainLayer
         @topBarLayer.centerX()
@@ -133,8 +139,10 @@ class ScreenMainMenu_1024_641 extends ScreenBase
                 y: 0
 
         @topBarLayer.states.animationOptions = 
-            time: 0.2
-            curve: "spring(40, 0, 0)" 
+            time: 0.3
+            curve: curvein
+            delay: 0
+            
 
         @topBarLayer.states.switchInstant("top_outside")
 

@@ -2,6 +2,11 @@ ScreenBase = require("./ScreenBase_1067x584")
 
 ClickEffect = require("./ClickEffect")
 
+curvemove = 'cubic-bezier(0.4, 0, 0.2, 1)'
+curvein = 'cubic-bezier(0, 0, 0.2, 1)'
+curveout = 'cubic-bezier(0.4, 0, 1, 1)'
+
+
 class ScreenMainMenu_1067x584 extends ScreenBase
     constructor: () ->
 
@@ -19,9 +24,10 @@ class ScreenMainMenu_1067x584 extends ScreenBase
 
 
         @topBarLayer = new Layer
+            # backgroundColor: '#2c2b27'
             image: 'images/TopBarWithLogo.png'
-            width: @width
-            height: 76
+            width: @width + 4
+            height: 76 + 4
 
         @topBarLayer.superLayer = @mainLayer
         @topBarLayer.centerX()
@@ -53,6 +59,11 @@ class ScreenMainMenu_1067x584 extends ScreenBase
             height: 255
 
         @contactLayer.superLayer = @mainLayer
+
+        @afterProfileButtonClicked = null
+        @afterProjectsButtonClicked = null
+        @afterPersonnelButtonClicked = null
+        @afterContactButtonClicked = null
 
     initContactLayer: () =>
         @contactLayer.states.add
@@ -134,20 +145,37 @@ class ScreenMainMenu_1067x584 extends ScreenBase
 
         ClickEffect.addTo @profileLayer
 
+        @profileLayer.on Events.StateDidSwitch, @onProfileLayerStateDidSwitch
+
+    onProfileLayerStateDidSwitch: () =>
+        @mainLayer.backgroundColor = "white"
+
     initTopBarLayer: () =>
         @topBarLayer.states.add
             top_outside: 
-                x: 0
+                x: -2
                 y: (@topBarLayer.height) * -1
             on_top: 
-                x: 0
-                y: 0
+                x: -2
+                y: -2
 
-        @topBarLayer.states.animationOptions = 
-            time: 0.2
-            curve: "spring(40, 0, 0)" 
 
         @topBarLayer.states.switchInstant("top_outside")
+
+        @topBarLayer.states.animationOptions = 
+            time: 0.3
+            curve: "ease"
+
+        @topBarLayer.on Events.StateDidSwitch, @topBarLayerOnStateDidSwitch
+
+    topBarLayerOnStateDidSwitch: (e, stateName) =>
+        if stateName is "on_top"
+            @profileLayer.states.switch("on_left")
+            @personnelLayer.states.switch("on_left")
+            @projectsLayer.states.switch("on_left")
+            @contactLayer.states.switch("on_left")
+            
+
 
     hideAllMenuLayers: () =>
         @profileLayer.states.switch("left_outside")
@@ -160,15 +188,26 @@ class ScreenMainMenu_1067x584 extends ScreenBase
 
     onProfileLayerClicked: (event, layer) =>
         @hideAllMenuLayers()
+        
+        if @afterProfileButtonClicked 
+        
+            @afterProfileButtonClicked(self)
 
     onPersonnelLayerClicked: (event, layer) =>
         @hideAllMenuLayers()
+        
+        if @afterPersonnelButtonClicked            
+            @afterPersonnelButtonClicked(self)
 
     onProjectsLayerClicked: (event, layer) =>
         @hideAllMenuLayers()
+        if @afterProjectsButtonClicked
+            @afterProjectsButtonClicked(self)
 
     onContactLayerClicked: (event, layer) =>
         @hideAllMenuLayers()
+        if @afterContactButtonClicked
+            @afterContactButtonClicked(self)
 
     init: () =>
         super
@@ -192,12 +231,6 @@ class ScreenMainMenu_1067x584 extends ScreenBase
 
     play: () =>
         @topBarLayer.states.switch("on_top")
-        @profileLayer.states.switch("on_left")
-        @personnelLayer.states.switch("on_left")
-        @projectsLayer.states.switch("on_left")
-        @contactLayer.states.switch("on_left")
-
-        @mainLayer.backgroundColor = "white"
 
 
 module.exports = ScreenMainMenu_1067x584
