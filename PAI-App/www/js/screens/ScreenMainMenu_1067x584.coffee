@@ -12,7 +12,7 @@ class ScreenMainMenu_1067x584 extends ScreenBase
 
         super
 
-
+        @subMenuScreen = null        
 
 
         # @tempLayer = new Layer
@@ -60,10 +60,11 @@ class ScreenMainMenu_1067x584 extends ScreenBase
 
         @contactLayer.superLayer = @mainLayer
 
-        @afterProfileButtonClicked = null
-        @afterProjectsButtonClicked = null
-        @afterPersonnelButtonClicked = null
-        @afterContactButtonClicked = null
+    destroyCurrentSubMenuScreen: () =>
+        if @subMenuScreen isnt null
+            @subMenuScreen.destroy()
+            @subMenuScreen = null
+        
 
     initContactLayer: () =>
         @contactLayer.states.add
@@ -189,25 +190,24 @@ class ScreenMainMenu_1067x584 extends ScreenBase
     onProfileLayerClicked: (event, layer) =>
         @hideAllMenuLayers()
         
-        if @afterProfileButtonClicked 
-        
-            @afterProfileButtonClicked(self)
+        if @delegate        
+            @delegate.afterProfileButtonClicked(self)
 
     onPersonnelLayerClicked: (event, layer) =>
         @hideAllMenuLayers()
         
-        if @afterPersonnelButtonClicked            
-            @afterPersonnelButtonClicked(self)
+        if @delegate
+            @delegate.afterPersonnelButtonClicked(self)
 
     onProjectsLayerClicked: (event, layer) =>
         @hideAllMenuLayers()
-        if @afterProjectsButtonClicked
-            @afterProjectsButtonClicked(self)
+        if @delegate
+            @delegate.afterProjectsButtonClicked(self)
 
     onContactLayerClicked: (event, layer) =>
         @hideAllMenuLayers()
-        if @afterContactButtonClicked
-            @afterContactButtonClicked(self)
+        if @delegate
+            @delegate.afterContactButtonClicked(self)
 
     init: () =>
         super

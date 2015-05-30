@@ -137,13 +137,13 @@ class ScreenMainMenu_1067x584 extends ScreenBase
 
     onFirmDescriptionButtonClicked: () =>
         @hideAllLayers()
-        if @afterFirmDescriptionButtonClicked isnt null
-            @afterFirmDescriptionButtonClicked(@)
+        if @delegate
+            @delegate.afterFirmDescriptionButtonClicked(@)
 
     onPhilosophyButtonClicked: () =>
         @hideAllLayers()
-        if @afterPhilosophyButtonClicked isnt null
-            @afterPhilosophyButtonClicked(@)
+        if @delegate
+            @delegate.afterPhilosophyButtonClicked(@)
 
 
     play: () =>

@@ -9,6 +9,8 @@ class ScreenBase_1067x584 extends ScreenBase
         @width = ScreenBase_1067x584.WIDTH
         @height = ScreenBase_1067x584.HEIGHT
 
+        @delegate = null
+
         super
 
 module.exports = ScreenBase_1067x584

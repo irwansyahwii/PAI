@@ -139,15 +139,15 @@
 
     ScreenMainMenu_1067x584.prototype.onFirmDescriptionButtonClicked = function() {
       this.hideAllLayers();
-      if (this.afterFirmDescriptionButtonClicked !== null) {
-        return this.afterFirmDescriptionButtonClicked(this);
+      if (this.delegate) {
+        return this.delegate.afterFirmDescriptionButtonClicked(this);
       }
     };
 
     ScreenMainMenu_1067x584.prototype.onPhilosophyButtonClicked = function() {
       this.hideAllLayers();
-      if (this.afterPhilosophyButtonClicked !== null) {
-        return this.afterPhilosophyButtonClicked(this);
+      if (this.delegate) {
+        return this.delegate.afterPhilosophyButtonClicked(this);
       }
     };
 

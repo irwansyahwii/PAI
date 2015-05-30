@@ -16,6 +16,7 @@
     function ScreenBase_1067x584() {
       this.width = ScreenBase_1067x584.WIDTH;
       this.height = ScreenBase_1067x584.HEIGHT;
+      this.delegate = null;
       ScreenBase_1067x584.__super__.constructor.apply(this, arguments);
     }
 

@@ -33,7 +33,9 @@
       this.initPersonnelLayer = bind(this.initPersonnelLayer, this);
       this.initProjectsLayer = bind(this.initProjectsLayer, this);
       this.initContactLayer = bind(this.initContactLayer, this);
+      this.destroyCurrentSubMenuScreen = bind(this.destroyCurrentSubMenuScreen, this);
       ScreenMainMenu_1067x584.__super__.constructor.apply(this, arguments);
+      this.subMenuScreen = null;
       this.topBarLayer = new Layer({
         image: 'images/TopBarWithLogo.png',
         width: this.width + 4,
@@ -65,11 +67,14 @@
         height: 255
       });
       this.contactLayer.superLayer = this.mainLayer;
-      this.afterProfileButtonClicked = null;
-      this.afterProjectsButtonClicked = null;
-      this.afterPersonnelButtonClicked = null;
-      this.afterContactButtonClicked = null;
     }
+
+    ScreenMainMenu_1067x584.prototype.destroyCurrentSubMenuScreen = function() {
+      if (this.subMenuScreen !== null) {
+        this.subMenuScreen.destroy();
+        return this.subMenuScreen = null;
+      }
+    };
 
     ScreenMainMenu_1067x584.prototype.initContactLayer = function() {
       this.contactLayer.states.add({
@@ -194,29 +199,29 @@
 
     ScreenMainMenu_1067x584.prototype.onProfileLayerClicked = function(event, layer) {
       this.hideAllMenuLayers();
-      if (this.afterProfileButtonClicked) {
-        return this.afterProfileButtonClicked(self);
+      if (this.delegate) {
+        return this.delegate.afterProfileButtonClicked(self);
       }
     };
 
     ScreenMainMenu_1067x584.prototype.onPersonnelLayerClicked = function(event, layer) {
       this.hideAllMenuLayers();
-      if (this.afterPersonnelButtonClicked) {
-        return this.afterPersonnelButtonClicked(self);
+      if (this.delegate) {
+        return this.delegate.afterPersonnelButtonClicked(self);
       }
     };
 
     ScreenMainMenu_1067x584.prototype.onProjectsLayerClicked = function(event, layer) {
       this.hideAllMenuLayers();
-      if (this.afterProjectsButtonClicked) {
-        return this.afterProjectsButtonClicked(self);
+      if (this.delegate) {
+        return this.delegate.afterProjectsButtonClicked(self);
       }
     };
 
     ScreenMainMenu_1067x584.prototype.onContactLayerClicked = function(event, layer) {
       this.hideAllMenuLayers();
-      if (this.afterContactButtonClicked) {
-        return this.afterContactButtonClicked(self);
+      if (this.delegate) {
+        return this.delegate.afterContactButtonClicked(self);
       }
     };
 
