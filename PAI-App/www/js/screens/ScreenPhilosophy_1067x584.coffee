@@ -1,22 +1,23 @@
 ScreenBase = require("./ScreenBase_1067x584")
 ClickEffect = require("./ClickEffect")
 
-class ScreenFirmDescription_1067x584 extends ScreenBase
+class ScreenPhilosophy_1067x584 extends ScreenBase
     constructor: (options) ->
         super
 
         @parent_screen = options.parent_screen || {}
 
+        @afterBackButtonClicked = null
+
         if @parent_screen
             @mainLayer.superLayer = @parent_screen.mainLayer
             @mainLayer.placeBehind @parent_screen.topBarLayer
-
 
         @mainLayer.backgroundColor = 'white'
 
         @headerLayer = new Layer
             # backgroundColor: '#2c2b27'
-            image: 'images/ProfileDescription-Header.png'
+            image: 'images/Philosophy-Header.png'
             x: 0
             y: @parent_screen.topBarLayer.height - 1
             width: @width + 1
@@ -35,7 +36,7 @@ class ScreenFirmDescription_1067x584 extends ScreenBase
         @backButtonLayer.superLayer = @headerLayer
 
         @backgroundImageLayer = new Layer
-            image: "images/ProfileDescription-Background.png"
+            image: "images/Philosophy-Background.png"
             width: 1141
             height: 591
             scale: 1
@@ -46,16 +47,17 @@ class ScreenFirmDescription_1067x584 extends ScreenBase
         @backgroundImageLayer.superLayer = @mainLayer
         @backgroundImageLayer.placeBehind @headerLayer
 
-        @firmDescriptionLayer = new Layer
-            image: "images/ProfileDescription-FirmDescription.png"
+
+        @philosophyDescriptionLayer = new Layer
+            image: "images/Philosophy-Philosophy.png"
             width: 308
-            height: 435
+            height: 299
             x: 0
             y: 0
 
-        @firmDescriptionLayer.superLayer = @mainLayer
+        @philosophyDescriptionLayer.superLayer = @mainLayer
 
-        @firmDescriptionLayer.states.animationOptions =
+        @philosophyDescriptionLayer.states.animationOptions =
             time: 0.3
         
 
@@ -100,15 +102,15 @@ class ScreenFirmDescription_1067x584 extends ScreenBase
 
         @backgroundImageLayer.on Events.StateDidSwitch, @backgroundImageLayerStateDidSwitch
 
-        @firmDescriptionLayer.states.add
+        @philosophyDescriptionLayer.states.add
             hidden_right:
                 x: @mainLayer.width + 2
                 y: 140
             shown_right:
-                x: @mainLayer.width - @firmDescriptionLayer.width
+                x: @mainLayer.width - @philosophyDescriptionLayer.width
 
 
-        @firmDescriptionLayer.states.switchInstant("hidden_right")
+        @philosophyDescriptionLayer.states.switchInstant("hidden_right")
 
     backgroundImageLayerStateDidSwitch: (e, stateName) =>
         if stateName is "center_shown"
@@ -118,7 +120,7 @@ class ScreenFirmDescription_1067x584 extends ScreenBase
             Utils.delay 1, =>
                 @backgroundImageLayer.states.switch("scroll_topleft")
 
-            @firmDescriptionLayer.states.switch("shown_right")
+            @philosophyDescriptionLayer.states.switch("shown_right")
 
         if stateName is "scroll_topleft"
             Utils.delay 1, =>
@@ -134,7 +136,7 @@ class ScreenFirmDescription_1067x584 extends ScreenBase
 
         if stateName is "scroll_right"
             Utils.delay 1, =>
-                @backgroundImageLayer.states.switch("scroll_topleft")
+                @backgroundImageLayer.states.switch("scroll_topleft")        
 
     hideAllLayers: () =>
         @headerLayer.states.switch("top_outside")
@@ -142,7 +144,7 @@ class ScreenFirmDescription_1067x584 extends ScreenBase
         @backgroundImageLayer.states.animationOptions =
             time: 0.3
         @backgroundImageLayer.states.switch("center_hidden")
-        @firmDescriptionLayer.states.switch("hidden_right")
+        @philosophyDescriptionLayer.states.switch("hidden_right")
 
 
     onBackButtonClicked: () =>
@@ -150,11 +152,10 @@ class ScreenFirmDescription_1067x584 extends ScreenBase
         if @afterBackButtonClicked isnt null
             @afterBackButtonClicked(@)
 
-
     play: () =>
         @show()
         @headerLayer.states.switch("on_top")
         @backgroundImageLayer.states.switch("center_shown")
 
-module.exports = ScreenFirmDescription_1067x584
 
+module.exports = ScreenPhilosophy_1067x584

@@ -5,6 +5,7 @@ ScreenIntro = require "./screens/ScreenIntro_1067x584"
 ScreenMainMenu = require "./screens/ScreenMainMenu_1067x584"
 ScreenProfileMenu = require "./screens/ScreenProfileMenu_1067x584"
 ScreenFirmDescription = require "./screens/ScreenFirmDescription_1067x584"
+ScreenPhilosophy = require "./screens/ScreenPhilosophy_1067x584"
 
 # alert(Screen.width) 1067
 # alert(Screen.height) 584
@@ -58,6 +59,16 @@ class App
 
 
     afterPhilosophyButtonClicked: () =>
+        Utils.delay 0.3, =>
+            @destroyCurrentSubMenuScreen()
+            @subMenuScreen = new ScreenPhilosophy
+                parent_screen: @mainMenu
+
+            @subMenuScreen.afterBackButtonClicked = =>
+                @afterMainMenuProfileButtonClicked()
+
+            @subMenuScreen.init()
+            @subMenuScreen.play()
 
     afterMainMenuProfileButtonClicked: () =>
         Utils.delay 0.3, =>
