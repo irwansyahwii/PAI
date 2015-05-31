@@ -4,9 +4,6 @@ ScreenPhilosophy = require "../screens/ScreenPhilosophy_1067x584"
 ScreenDelegateBase = require "./ScreenDelegateBase_1067x584"
 
 class ProfileMenuDelegate_1067x584 extends ScreenDelegateBase
-    constructor:(mainMenuScreen) ->
-        @mainMenuScreen = mainMenuScreen
-
     afterFirmDescriptionButtonClicked: () =>
         @afterButtonMenuClicked =>
             @mainMenuScreen.subMenuScreen = new ScreenFirmDescription

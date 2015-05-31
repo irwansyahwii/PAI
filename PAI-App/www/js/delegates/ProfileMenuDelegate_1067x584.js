@@ -14,10 +14,10 @@
   ProfileMenuDelegate_1067x584 = (function(superClass) {
     extend(ProfileMenuDelegate_1067x584, superClass);
 
-    function ProfileMenuDelegate_1067x584(mainMenuScreen) {
+    function ProfileMenuDelegate_1067x584() {
       this.afterPhilosophyButtonClicked = bind(this.afterPhilosophyButtonClicked, this);
       this.afterFirmDescriptionButtonClicked = bind(this.afterFirmDescriptionButtonClicked, this);
-      this.mainMenuScreen = mainMenuScreen;
+      return ProfileMenuDelegate_1067x584.__super__.constructor.apply(this, arguments);
     }
 
     ProfileMenuDelegate_1067x584.prototype.afterFirmDescriptionButtonClicked = function() {

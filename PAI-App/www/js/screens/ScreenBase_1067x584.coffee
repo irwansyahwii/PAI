@@ -13,4 +13,10 @@ class ScreenBase_1067x584 extends ScreenBase
 
         super
 
+    onBackButtonClicked: () =>
+        @hideAllLayers()
+        if @afterBackButtonClicked isnt null
+            Utils.delay 1, =>
+                @afterBackButtonClicked(@)
+
 module.exports = ScreenBase_1067x584
