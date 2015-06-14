@@ -4,8 +4,208 @@
 		"selected_items":
 		[
 			[
+				"image",
+				"imageInfo"
+			],
+			[
+				"op",
+				"options"
+			],
+			[
+				"te",
+				"text1anim"
+			],
+			[
+				"cap",
+				"caption"
+			],
+			[
+				"hid",
+				"hideAllInstantly"
+			],
+			[
 				"on",
-				"onResizeChange"
+				"onPlayEnds"
+			],
+			[
+				"sta",
+				"stateName"
+			],
+			[
+				"swi",
+				"switchInstant"
+			],
+			[
+				"ima",
+				"image"
+			],
+			[
+				"Sta",
+				"stateName"
+			],
+			[
+				"pla",
+				"playTextAnimation"
+			],
+			[
+				"Cli",
+				"Click"
+			],
+			[
+				"bu",
+				"buttonPAILayer"
+			],
+			[
+				"add",
+				"addTo"
+			],
+			[
+				"show",
+				"shown"
+			],
+			[
+				"hdie",
+				"hidden"
+			],
+			[
+				"he",
+				"height"
+			],
+			[
+				"Scre",
+				"ScreenContact"
+			],
+			[
+				"scre",
+				"screens"
+			],
+			[
+				"con",
+				"contactDescriptionLayer"
+			],
+			[
+				"sw",
+				"switchInstant"
+			],
+			[
+				"Sc",
+				"ScreenThomas"
+			],
+			[
+				"ba",
+				"backgroundImageLayer"
+			],
+			[
+				"La",
+				"lannylayer"
+			],
+			[
+				"Pers",
+				"PersonnelMenu-Back"
+			],
+			[
+				"scree",
+				"ScreenPersonnel"
+			],
+			[
+				"top",
+				"top_outside"
+			],
+			[
+				"thu",
+				"thumbScroll"
+			],
+			[
+				"bak",
+				"backgroundColor"
+			],
+			[
+				"del",
+				"delay"
+			],
+			[
+				"p",
+				"previousScreenDelegate"
+			],
+			[
+				"Main",
+				"MainMenuDelegate_1067x584"
+			],
+			[
+				"hi",
+				"highlight"
+			],
+			[
+				"super",
+				"superLayer"
+			],
+			[
+				"Pro",
+				"ProjectsMenuDelegate"
+			],
+			[
+				"thumb",
+				"thumbLayer"
+			],
+			[
+				"in",
+				"index"
+			],
+			[
+				"thum",
+				"thumbLayer"
+			],
+			[
+				"cur",
+				"curvemove"
+			],
+			[
+				"a",
+				"afterButtonMasterPlanProjectsClicked"
+			],
+			[
+				"ad",
+				"animateHideThumb"
+			],
+			[
+				"butt",
+				"buttonOfficeBuilding"
+			],
+			[
+				"but",
+				"buttonMasterplanProjects"
+			],
+			[
+				"butr",
+				"buttonResorts"
+			],
+			[
+				"button",
+				"buttonOfficeBuilding"
+			],
+			[
+				"sup",
+				"superLayer"
+			],
+			[
+				"afte",
+				"afterButtonMenuClicked"
+			],
+			[
+				"sub",
+				"subMenuScreenDelegate"
+			],
+			[
+				"m",
+				"mainMenu"
+			],
+			[
+				"ma",
+				"mainMenuScreen"
+			],
+			[
+				"Scree",
+				"ScreenPhilosophy"
 			],
 			[
 				"re",
@@ -46,14 +246,6 @@
 			[
 				"ani",
 				"animateConfig"
-			],
-			[
-				"Pro",
-				"property"
-			],
-			[
-				"con",
-				"console"
 			],
 			[
 				"data",
@@ -236,32 +428,12 @@
 				"stringify"
 			],
 			[
-				"cur",
-				"current_row"
-			],
-			[
-				"ma",
-				"MAILING_STATES_TABLE_NAME"
-			],
-			[
 				"ne",
 				"next_expiration_date_string2"
 			],
 			[
 				"log",
 				"log_id"
-			],
-			[
-				"swi",
-				"switchInstant"
-			],
-			[
-				"a",
-				"afterBackButtonClicked"
-			],
-			[
-				"afte",
-				"afterBackButtonClicked"
 			],
 			[
 				"s",
@@ -272,10 +444,6 @@
 				"center_hidden"
 			],
 			[
-				"hi",
-				"hideAllLayers"
-			],
-			[
 				"h",
 				"height"
 			],
@@ -284,28 +452,8 @@
 				"scroll_left"
 			],
 			[
-				"sta",
-				"states"
-			],
-			[
-				"he",
-				"headerLayer"
-			],
-			[
-				"pla",
-				"placeBehind"
-			],
-			[
 				"si",
 				"switch"
-			],
-			[
-				"ba",
-				"backgroundImageLayer"
-			],
-			[
-				"Sc",
-				"ScreenFirmDescription"
 			],
 			[
 				"des",
@@ -366,166 +514,11 @@
 			[
 				"cron",
 				"cron_type"
-			],
-			[
-				"stat",
-				"start_time"
-			],
-			[
-				"Erro",
-				"error"
-			],
-			[
-				"errr",
-				"error"
-			],
-			[
-				"create",
-				"createMemberProcessResultsTable"
-			],
-			[
-				"cre",
-				"createMailingCronLogsTable"
-			],
-			[
-				"Sta",
-				"StateDidSwitch"
-			],
-			[
-				"top",
-				"topBarLayer"
-			],
-			[
-				"tp",
-				"topBarLayer"
-			],
-			[
-				"onf",
-				"onFirmDescriptionStateDidSwitch"
-			],
-			[
-				"Cli",
-				"Click"
-			],
-			[
-				"add",
-				"addTo"
-			],
-			[
-				"bac",
-				"backButtonLayer"
-			],
-			[
-				"p",
-				"philosophyButton"
-			],
-			[
-				"imge",
-				"images"
-			],
-			[
-				"te",
-				"test"
-			],
-			[
-				"Scre",
-				"ScreenProfileMenu"
-			],
-			[
-				"after",
-				"afterContactButtonClicked"
-			],
-			[
-				"im",
-				"image"
-			],
-			[
-				"in",
-				"intro_layer"
-			],
-			[
-				"In",
-				"Intro1Layer_1067x584"
-			],
-			[
-				"del",
-				"delay"
-			],
-			[
-				"BG",
-				"BG_IMAGE_NAME"
-			],
-			[
-				"op",
-				"options"
-			],
-			[
-				"Stat",
-				"stateName"
-			],
-			[
-				"cu",
-				"curve"
-			],
-			[
-				"mi",
-				"midY"
-			],
-			[
-				"m",
-				"mainLayer"
-			],
-			[
-				"scal",
-				"scaleIn"
-			],
-			[
-				"curve",
-				"curveout"
-			],
-			[
-				"sca",
-				"scaleOut"
-			],
-			[
-				"go",
-				"gocenter"
-			],
-			[
-				"IN",
-				"Intro1Layer_1024_614"
-			],
-			[
-				"produ",
-				"product"
-			],
-			[
-				"onpr",
-				"onProjectsLayerClicked"
-			],
-			[
-				"onp",
-				"onPersonnelLayerClicked"
-			],
-			[
-				"ini",
-				"initContactLayer"
-			],
-			[
-				"co",
-				"contactLayer"
 			]
 		]
 	},
 	"buffers":
 	[
-		{
-			"settings":
-			{
-				"buffer_size": 0,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -620,10 +613,46 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/irwansyah/PROJECTS/Bentuk/PAI"
+		"/Users/irwansyah/PROJECTS/Bentuk/PAI",
+		"/Users/irwansyah/PROJECTS/Bentuk/PAI/PAI-App",
+		"/Users/irwansyah/PROJECTS/Bentuk/PAI/PAI-App/www",
+		"/Users/irwansyah/PROJECTS/Bentuk/PAI/PAI-App/www/images",
+		"/Users/irwansyah/PROJECTS/Bentuk/PAI/PAI-App/www/js",
+		"/Users/irwansyah/PROJECTS/Bentuk/PAI/PAI-App/www/js/delegates",
+		"/Users/irwansyah/PROJECTS/Bentuk/PAI/PAI-App/www/js/screens",
+		"/Users/irwansyah/PROJECTS/Bentuk/PAI/PAI-App/www/lib",
+		"/Users/irwansyah/PROJECTS/Bentuk/PAI/PAI-App/www/lib/framer"
 	],
 	"file_history":
 	[
+		"/Users/irwansyah/PROJECTS/Bentuk/PAI/PAI-App/www/js/screens/GenericIntroLayerWithAnim_1067x584.coffee",
+		"/Users/irwansyah/PROJECTS/Bentuk/PAI/PAI-App/www/js/screens/ScreenIntro_1067x584.coffee",
+		"/Users/irwansyah/PROJECTS/Bentuk/PAI/PAI-App/www/js/screens/IntroLayerBase.coffee",
+		"/Users/irwansyah/PROJECTS/Bentuk/PAI/PAI-App/www/js/screens/Intro1Layer_1067x584.coffee",
+		"/Users/irwansyah/PROJECTS/Bentuk/PAI/PAI-App/www/js/screens/ScreenIntro_1024_614.coffee",
+		"/Users/irwansyah/PROJECTS/Bentuk/PAI/PAI-App/www/js/delegates/ScreenDelegateBase_1067x584.coffee",
+		"/Users/irwansyah/PROJECTS/Bentuk/PAI/PAI-App/www/js/screens/ScreenMainMenu_1067x584.coffee",
+		"/Users/irwansyah/PROJECTS/Bentuk/PAI/PAI-App/www/js/delegates/MainMenuDelegate_1067x584.coffee",
+		"/Users/irwansyah/PROJECTS/Bentuk/PAI/PAI-App/www/js/screens/ScreenMainMenu_1024_641.coffee",
+		"/Users/irwansyah/PROJECTS/Bentuk/PAI/PAI-App/www/js/screens/ScreenContact_1067x584.coffee",
+		"/Users/irwansyah/PROJECTS/Bentuk/PAI/PAI-App/www/js/screens/ScreenPersonnel_1067x584.coffee",
+		"/Users/irwansyah/PROJECTS/Bentuk/PAI/PAI-App/www/js/screens/ScreenThomas_1067x584.coffee",
+		"/Users/irwansyah/PROJECTS/Bentuk/PAI/PAI-App/www/js/delegates/PersonnelDelegate_1067x584.coffee",
+		"/Users/irwansyah/PROJECTS/Bentuk/PAI/PAI-App/www/js/screens/ScreenGenericProjectDetail_1067x584.coffee",
+		"/Users/irwansyah/PROJECTS/Bentuk/PAI/PAI-App/www/lib/framer/framer.js",
+		"/Users/irwansyah/PROJECTS/Bentuk/PAI/PAI-App/www/js/screens/ScrollComponent.coffee",
+		"/Users/irwansyah/PROJECTS/Bentuk/PAI/Framer/Project/framer/framer.js",
+		"/Users/irwansyah/PROJECTS/Bentuk/PAI/PAI-App/www/js/screens/ScreenMasterProjects_1067x584.coffee",
+		"/Users/irwansyah/PROJECTS/Bentuk/PAI/PAI-App/www/js/delegates/MasterProjectsDelegate_1067x584.coffee",
+		"/Users/irwansyah/PROJECTS/Bentuk/PAI/PAI-App/www/js/delegates/ProjectsMenuDelegate_1067x584.coffee",
+		"/Users/irwansyah/PROJECTS/Bentuk/PAI/PAI-App/www/js/delegates/ProjectsMenuDelegate_1067x584.js",
+		"/Users/irwansyah/PROJECTS/Bentuk/PAI/PAI-App/www/js/screens/ScreenBase_1067x584.coffee",
+		"/Users/irwansyah/PROJECTS/Bentuk/PAI/PAI-App/www/js/delegates/ProfileMenuDelegate_1067x584.coffee",
+		"/Users/irwansyah/PROJECTS/Bentuk/PAI/PAI-App/www/js/framerApp.coffee",
+		"/Users/irwansyah/PROJECTS/Bentuk/PAI/PAI-App/www/js/screens/ScreenProjectsMenu_1067x584.coffee",
+		"/Users/irwansyah/PROJECTS/Bentuk/PAI/PAI-App/www/js/screens/ScreenProfileMenu_1067x584.coffee",
+		"/Users/irwansyah/PROJECTS/Bentuk/PAI/PAI-App/www/js/screens/ScreenFirmDescription_1067x584.coffee",
+		"/Users/irwansyah/PROJECTS/Bentuk/PAI/PAI-App/www/js/screens/ScreenPhilosophy_1067x584.coffee",
 		"/Users/irwansyah/PROJECTS/Famous/test1/src/index.js",
 		"/Users/irwansyah/PROJECTS/Famous/test1/src/index_original.js",
 		"/Users/irwansyah/PROJECTS/Famous/test1/src/index.coffee",
@@ -644,21 +673,11 @@
 		"/Users/irwansyah/PROJECTS/acna-tools/EmailSending/DateUtils.coffee",
 		"/Users/irwansyah/PROJECTS/acna-tools/EmailSending/Logger.coffee",
 		"/Users/irwansyah/PROJECTS/Bentuk/PAI/PAI-App/www/js/screens/GenericIntroLayer_1067x584.coffee",
-		"/Users/irwansyah/PROJECTS/Bentuk/PAI/PAI-App/www/js/screens/Intro1Layer_1067x584.coffee",
-		"/Users/irwansyah/PROJECTS/Bentuk/PAI/PAI-App/www/js/screens/IntroLayerBase.coffee",
-		"/Users/irwansyah/PROJECTS/Bentuk/PAI/PAI-App/www/js/screens/ScreenFirmDescription_1067x584.coffee",
 		"/Users/irwansyah/PROJECTS/irwan-ACNA-Website/sites/all/modules/audiclubna/audiclubna.module",
 		"/Users/irwansyah/PROJECTS/acna-tools/untitled.coffee",
 		"/Users/irwansyah/PROJECTS/acna-tools/package.json",
 		"/Users/irwansyah/PROJECTS/acna-tools/EmailSendingCron.coffee",
 		"/Users/irwansyah/PROJECTS/acna-tools/EmailSendingCron.js",
-		"/Users/irwansyah/PROJECTS/Bentuk/PAI/PAI-App/www/js/screens/ScreenMainMenu_1024_641.coffee",
-		"/Users/irwansyah/PROJECTS/Bentuk/PAI/PAI-App/www/js/screens/ScreenMainMenu_1067x584.coffee",
-		"/Users/irwansyah/PROJECTS/Bentuk/PAI/PAI-App/www/js/screens/ScreenProfileMenu_1067x584.coffee",
-		"/Users/irwansyah/PROJECTS/Bentuk/PAI/PAI-App/www/js/framerApp.coffee",
-		"/Users/irwansyah/PROJECTS/Bentuk/PAI/PAI-App/www/js/screens/ScreenIntro_1024_614.coffee",
-		"/Users/irwansyah/PROJECTS/Bentuk/PAI/PAI-App/www/js/screens/ScreenIntro_1067x584.coffee",
-		"/Users/irwansyah/PROJECTS/Bentuk/PAI/PAI-App/www/js/screens/ScreenBase_1067x584.coffee",
 		"/Users/irwansyah/PROJECTS/Bentuk/PAI/PAI-App/www/js/main.coffee",
 		"/Users/irwansyah/PROJECTS/Bentuk/PAI/PAI-App/www/js/screens/Intro1LayerWithAnimation_1024_614.coffee",
 		"/Users/irwansyah/PROJECTS/Bentuk/PAI/PAI-App/www/js/screens/ScreenBase.coffee",
@@ -733,29 +752,11 @@
 		"/Users/irwansyah/PROJECTS/mrm-playground/src/client/setup/js/module_setup_main/main.screen.controller.js",
 		"/Users/irwansyah/PROJECTS/mrm-playground/src/client/setup/package.json",
 		"/Users/irwansyah/PROJECTS/mrm-playground/src/client/setup/js/app_setup.js",
-		"/Users/irwansyah/PROJECTS/mrm-playground/src/client/setup/index.jade",
-		"/Users/irwansyah/PROJECTS/mrm-playground/src/server/package.json",
-		"/Users/irwansyah/PROJECTS/mrm-playground/src/client/setup/js/module_setup_main/module.setup.main.js",
-		"/Users/irwansyah/PROJECTS/mrm-playground/src/client/setup/js/domain_models/SetupInformation.js",
-		"/Users/irwansyah/PROJECTS/mrm-playground/src/client/setup/config.js",
-		"/Users/irwansyah/PROJECTS/mrm-playground/src/client/build/config.js",
-		"/Users/irwansyah/PROJECTS/mrm-playground/src/client/setup/js/build.js",
-		"/Users/irwansyah/PROJECTS/mrm-playground/src/client/setup/js/module_setup_main/main.screen.jade",
-		"/Users/irwansyah/PROJECTS/mrm-playground/src/client/setup/index.html",
-		"/Users/irwansyah/PROJECTS/mrm-playground/src/client/setup/js/module_setup_main/route.for.setup.main.js",
-		"/Users/irwansyah/PROJECTS/mrm-playground/readme.md",
-		"/Users/irwansyah/PROJECTS/mrm-playground/src/client/setup/jspm_packages/bower/angular-facebook@0.2.3/lib/angular-facebook.js",
-		"/Users/irwansyah/PROJECTS/irwan-ACNA-Website/sites/default/sql/renewal_reminder_list_count.sql",
-		"/Users/irwansyah/PROJECTS/irwan-ACNA-Website/sites/default/sql/renewal_reminder_list.sql",
-		"/Users/irwansyah/PROJECTS/irwan-ACNA-Website/sites/default/files/forena-reports/renewal_reminder_list.frx",
-		"/Users/irwansyah/PROJECTS/irwan-ACNA-Website/acna_imis_import/install_scripts/additional_indexes.sql",
-		"/Users/irwansyah/PROJECTS/irwan-ACNA-Website/sites/default/files/forena-reports/renewal_reminder_list_skin.skinfo",
-		"/Users/irwansyah/PROJECTS/irwan-ACNA-Website/sites/default/sql/renewal_reminders.sql",
-		"/Users/irwansyah/PROJECTS/irwan-ACNA-Website/sites/default/sql/list_years.sql"
+		"/Users/irwansyah/PROJECTS/mrm-playground/src/client/setup/index.jade"
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
@@ -772,6 +773,27 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"GenericIntroLayerWithAnim_1067x548",
+			"options.text1",
+			"options.caption",
+			"options.background",
+			"options",
+			"text1Layer",
+			"options",
+			"philosophyDescriptionLayer",
+			"thomasLayer",
+			"topbarlayer",
+			"topBarLayer",
+			"compatscrollview",
+			"scrollview",
+			"ProjectsMenuDelegate2",
+			"on_screen",
+			"switchInstant",
+			"buttonOfficeBuilding",
+			"mainMenuScreen.subMenuScreen",
+			"MainMenu_1067x584Delegate",
+			"Intro2LayerWithAnimation_1024_614",
+			"firmDescriptionLayer",
 			"dispatch",
 			"event",
 			"@.width, @.height, @.depth",
@@ -878,28 +900,7 @@
 			"Layer",
 			"tags",
 			"email",
-			"phone",
-			"zip",
-			"</td>",
-			"<td>",
-			"</th>",
-			"<th>",
-			"h>",
-			"<th>",
-			"logs.pu",
-			"this.$scope.lo",
-			"import module_setup_main",
-			"app_set",
-			"Sys",
-			"base",
-			"System.",
-			"System.import",
-			"app_setup",
-			"reponseres",
-			"$log.debug",
-			"getLoginStatus",
-			"console",
-			"member_type"
+			"phone"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -917,36 +918,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -1002,6 +975,50 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"intro",
+				"PAI-App/www/js/screens/IntroLayerBase.coffee"
+			],
+			[
+				"screenintro_1024_614",
+				"PAI-App/www/js/screens/ScreenIntro_1024_614.coffee"
+			],
+			[
+				"introlayer",
+				"PAI-App/www/js/screens/IntroLayerBase.coffee"
+			],
+			[
+				"screende",
+				"PAI-App/www/js/delegates/ScreenDelegateBase_1067x584.coffee"
+			],
+			[
+				"scremainmenu",
+				"PAI-App/www/js/screens/ScreenMainMenu_1067x584.coffee"
+			],
+			[
+				"screemainmenu",
+				"PAI-App/www/js/screens/ScreenMainMenu_1067x584.coffee"
+			],
+			[
+				"framer",
+				"Framer/Project/framer/framer.js"
+			],
+			[
+				"screen",
+				"PAI-App/www/js/screens/ScreenBase_1067x584.coffee"
+			],
+			[
+				"profilemen",
+				"PAI-App/www/js/screens/ScreenProfileMenu_1067x584.coffee"
+			],
+			[
+				"mainme",
+				"PAI-App/www/js/screens/ScreenMainMenu_1067x584.coffee"
+			],
+			[
+				"screenfir",
+				"PAI-App/www/js/screens/ScreenFirmDescription_1067x584.coffee"
+			],
 			[
 				"uima",
 				"test1/node_modules/famous/renderers/UIManager.js"
@@ -1079,10 +1096,6 @@
 				"PAI/PAI-App/www/js/framerApp.coffee"
 			],
 			[
-				"screen",
-				"PAI-App/www/js/screens/ScreenBase.coffee"
-			],
-			[
 				"screenintro",
 				"PAI-App/www/js/screens/ScreenIntro_800x480.coffee"
 			],
@@ -1095,20 +1108,12 @@
 				"PAI-updated.framer/screens/ScreenBase.coffee"
 			],
 			[
-				"screenintro_1024_614",
-				"PAI-App/www/js/screens/ScreenIntro_1024_614.coffee"
-			],
-			[
 				"audi",
 				"sites/all/modules/audiclubna/audiclubna.module"
 			],
 			[
 				"introba",
 				"PAI-App/www/js/screens/IntroLayerBase.coffee"
-			],
-			[
-				"introlayer",
-				"PAI-App/www/js/screens/IntroLayerBase.js"
 			],
 			[
 				"ngc",
@@ -1303,11 +1308,11 @@
 	"settings":
 	{
 	},
-	"show_minimap": true,
+	"show_minimap": false,
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 265.0,
+	"side_bar_width": 356.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

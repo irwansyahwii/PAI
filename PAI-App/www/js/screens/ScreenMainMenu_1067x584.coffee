@@ -32,6 +32,16 @@ class ScreenMainMenu_1067x584 extends ScreenBase
         @topBarLayer.superLayer = @mainLayer
         @topBarLayer.centerX()
 
+        @buttonPAILayer = new Layer
+            image: 'images/ButtonPAI.png'
+            width: 91
+            height: 74
+            x: 522
+            y: 1
+
+        @buttonPAILayer.superLayer = @topBarLayer
+
+
         @profileLayer = new Layer
             image: 'images/MainMenu-Profile.png'
             width: 532
@@ -59,6 +69,8 @@ class ScreenMainMenu_1067x584 extends ScreenBase
             height: 255
 
         @contactLayer.superLayer = @mainLayer
+
+        @disableStateSwitching = false
 
     destroyCurrentSubMenuScreen: () =>
         if @subMenuScreen isnt null
@@ -153,6 +165,12 @@ class ScreenMainMenu_1067x584 extends ScreenBase
 
     initTopBarLayer: () =>
         @topBarLayer.states.add
+            hidden:
+                x: -2
+                y: (@topBarLayer.height) * -1
+            shown:
+                x: -2
+                y: -2                            
             top_outside: 
                 x: -2
                 y: (@topBarLayer.height) * -1
@@ -169,8 +187,20 @@ class ScreenMainMenu_1067x584 extends ScreenBase
 
         @topBarLayer.on Events.StateDidSwitch, @topBarLayerOnStateDidSwitch
 
+        ClickEffect.addTo @buttonPAILayer
+
+        @buttonPAILayer.on Events.Click, @onButtonPAILayerClicked
+
+    onButtonPAILayerClicked: () =>
+        if @delegate
+            @delegate.afterButtonPAILayerClicked()
+
     topBarLayerOnStateDidSwitch: (e, stateName) =>
+        if @disableStateSwitching
+            return
+
         if stateName is "on_top"
+            console.log "stateName: #{stateName}, showing menu buttons"
             @profileLayer.states.switch("on_left")
             @personnelLayer.states.switch("on_left")
             @projectsLayer.states.switch("on_left")

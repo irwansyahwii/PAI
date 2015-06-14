@@ -27,6 +27,7 @@
       this.onProfileLayerClicked = bind(this.onProfileLayerClicked, this);
       this.hideAllMenuLayers = bind(this.hideAllMenuLayers, this);
       this.topBarLayerOnStateDidSwitch = bind(this.topBarLayerOnStateDidSwitch, this);
+      this.onButtonPAILayerClicked = bind(this.onButtonPAILayerClicked, this);
       this.initTopBarLayer = bind(this.initTopBarLayer, this);
       this.onProfileLayerStateDidSwitch = bind(this.onProfileLayerStateDidSwitch, this);
       this.initProfileLayer = bind(this.initProfileLayer, this);
@@ -43,6 +44,14 @@
       });
       this.topBarLayer.superLayer = this.mainLayer;
       this.topBarLayer.centerX();
+      this.buttonPAILayer = new Layer({
+        image: 'images/ButtonPAI.png',
+        width: 91,
+        height: 74,
+        x: 522,
+        y: 1
+      });
+      this.buttonPAILayer.superLayer = this.topBarLayer;
       this.profileLayer = new Layer({
         image: 'images/MainMenu-Profile.png',
         width: 532,
@@ -67,6 +76,7 @@
         height: 255
       });
       this.contactLayer.superLayer = this.mainLayer;
+      this.disableStateSwitching = false;
     }
 
     ScreenMainMenu_1067x584.prototype.destroyCurrentSubMenuScreen = function() {
@@ -163,6 +173,14 @@
 
     ScreenMainMenu_1067x584.prototype.initTopBarLayer = function() {
       this.topBarLayer.states.add({
+        hidden: {
+          x: -2,
+          y: this.topBarLayer.height * -1
+        },
+        shown: {
+          x: -2,
+          y: -2
+        },
         top_outside: {
           x: -2,
           y: this.topBarLayer.height * -1
@@ -177,11 +195,23 @@
         time: 0.3,
         curve: "ease"
       };
-      return this.topBarLayer.on(Events.StateDidSwitch, this.topBarLayerOnStateDidSwitch);
+      this.topBarLayer.on(Events.StateDidSwitch, this.topBarLayerOnStateDidSwitch);
+      ClickEffect.addTo(this.buttonPAILayer);
+      return this.buttonPAILayer.on(Events.Click, this.onButtonPAILayerClicked);
+    };
+
+    ScreenMainMenu_1067x584.prototype.onButtonPAILayerClicked = function() {
+      if (this.delegate) {
+        return this.delegate.afterButtonPAILayerClicked();
+      }
     };
 
     ScreenMainMenu_1067x584.prototype.topBarLayerOnStateDidSwitch = function(e, stateName) {
+      if (this.disableStateSwitching) {
+        return;
+      }
       if (stateName === "on_top") {
+        console.log("stateName: " + stateName + ", showing menu buttons");
         this.profileLayer.states["switch"]("on_left");
         this.personnelLayer.states["switch"]("on_left");
         this.projectsLayer.states["switch"]("on_left");

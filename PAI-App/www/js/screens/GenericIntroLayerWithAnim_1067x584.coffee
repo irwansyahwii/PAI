@@ -1,47 +1,36 @@
 IntroLayerBase = require("./IntroLayerBase")
 
-BG_IMAGE_NAME = "images/Intro1-Background.png"
-
-class Intro1Layer_1067x584 extends IntroLayerBase
+class GenericIntroLayerWithAnim_1067x584 extends IntroLayerBase
     constructor: (options) ->
-        options = options || {}
+        @options = options || {}
 
-        options.BGImage = BG_IMAGE_NAME
+        @options.BGImage = @options.imageInfo.background.image_name
 
-        super(options)        
+        super(@options)        
 
         @is_start = true
 
         @backgroundLayer = @BGLayer
-        @backgroundLayer.width = 1072
-        @backgroundLayer.height = 1584
+        @backgroundLayer.width = @options.imageInfo.background.width
+        @backgroundLayer.height = @options.imageInfo.background.height
 
         @captionLayer = new Layer
-            image: 'images/Intro1-Caption.png'
-            width: 482
-            height: 46
-            x: 37
-            y: 336
+            image: @options.imageInfo.caption.image_name
+            width: @options.imageInfo.caption.width
+            height: @options.imageInfo.caption.height
+            x: @options.imageInfo.caption.x
+            y: @options.imageInfo.caption.y
 
         @captionLayer.superLayer = @mainLayer
 
         @text1Layer = new Layer
-            image: 'images/Intro1-Text1.png'
-            width: 276
-            height: 92
-            x: 499
-            y: 418
+            image: @options.imageInfo.text1.image_name
+            width: @options.imageInfo.text1.width
+            height: @options.imageInfo.text1.height
+            x: @options.imageInfo.text1.x
+            y: @options.imageInfo.text1.y
 
         @text1Layer.superLayer = @mainLayer
-
-        @text2Layer = new Layer
-            image: 'images/Intro1-Text2.png'
-            width: 224
-            height: 91
-            x: 819
-            y: 480
-
-        @text2Layer.superLayer = @mainLayer
 
     init: () =>
         super
@@ -52,26 +41,18 @@ class Intro1Layer_1067x584 extends IntroLayerBase
             shown:
                 opacity: 1
 
-        
-
-        @text2Layer.states.add
-            hidden:
-                opacity: 0
-            shown:
-                opacity: 1
-
-        
+                
 
         @backgroundLayer.states.add
             first:
-                x: 0
-                y: 0
+                x: @options.imageInfo.background.first.x
+                y: @options.imageInfo.background.first.y
             bottom:
-                x: 0
-                y: -1000
+                x: @options.imageInfo.background.bottom.x
+                y: @options.imageInfo.background.bottom.y
             center:
-                x:0
-                y: -600
+                x: @options.imageInfo.background.center.x
+                y: @options.imageInfo.background.center.y
 
         
         @backgroundLayer.on Events.StateDidSwitch, @onBackgroundLayerStateDidSwitch
@@ -109,22 +90,14 @@ class Intro1Layer_1067x584 extends IntroLayerBase
 
             text1anim.on "end", =>
                 Utils.delay 2, =>
-
-                    text2anim = @text2Layer.animate
-                        properties:
-                            opacity: 1
-                        time: 2
-
-                    text2anim.on "end", =>
-                        Utils.delay 2, =>
-                            @hideWithTransition()
-                            Utils.delay 2, =>
-                                @onPlayEnds()
+                    @hideWithTransition()
+                    Utils.delay 2.5, =>
+                        @onPlayEnds()
 
     hideAllInstantly: () =>
         @captionLayer.states.switchInstant("hidden")
         @backgroundLayer.states.switchInstant('first')
-        @text2Layer.states.switchInstant("hidden")
+        
         @text1Layer.states.switchInstant("hidden")
 
 
@@ -145,7 +118,6 @@ class Intro1Layer_1067x584 extends IntroLayerBase
             
 
             # Utils.delay 7, =>
-            #     @onPlayEnds()            
+            #     @onPlayEnds()                
 
-
-module.exports = Intro1Layer_1067x584
+module.exports = GenericIntroLayerWithAnim_1067x584

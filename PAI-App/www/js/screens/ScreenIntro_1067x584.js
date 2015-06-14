@@ -11,7 +11,7 @@
 
   Intro1Layer = require("./Intro1Layer_1067x584");
 
-  GenericIntroLayer = require("./GenericIntroLayer_1067x584");
+  GenericIntroLayer = require("./GenericIntroLayerWithAnim_1067x584");
 
   ScreenIntro_1067x584 = (function(superClass) {
     extend(ScreenIntro_1067x584, superClass);
@@ -32,18 +32,83 @@
         height: this.height
       });
       this.intro_layers.add(intro_layer);
-      images = ["images/Intro-2-Template.png", "images/Intro-3-Template.png"];
+      images = [
+        {
+          background: {
+            image_name: 'images/Intro2-Background.png',
+            width: 1093,
+            height: 1085,
+            first: {
+              x: 0,
+              y: 0
+            },
+            bottom: {
+              x: 0,
+              y: -420
+            },
+            center: {
+              x: 0,
+              y: -381
+            }
+          },
+          text1: {
+            image_name: 'images/Intro2-Text1.png',
+            width: 241,
+            height: 167,
+            x: 801,
+            y: 321
+          },
+          caption: {
+            image_name: 'images/Intro2-Caption.png',
+            width: 492,
+            height: 46,
+            x: 533,
+            y: 530
+          }
+        }, {
+          background: {
+            image_name: 'images/Intro3-Background.png',
+            width: 1073,
+            height: 1067,
+            first: {
+              x: 0,
+              y: 0
+            },
+            bottom: {
+              x: 0,
+              y: -409
+            },
+            center: {
+              x: 0,
+              y: -323
+            }
+          },
+          text1: {
+            image_name: 'images/Intro3-Text1.png',
+            width: 173,
+            height: 263,
+            x: 767,
+            y: 252
+          },
+          caption: {
+            image_name: 'images/Intro3-Caption.png',
+            width: 314,
+            height: 46,
+            x: 350,
+            y: 500
+          }
+        }
+      ];
       for (i = 0, len = images.length; i < len; i++) {
         image = images[i];
         intro_layer = new GenericIntroLayer({
-          BGImage: image,
+          imageInfo: image,
           superLayer: this.mainLayer,
           width: this.width,
           height: this.height
         });
         this.intro_layers.add(intro_layer);
       }
-      console.log("@intro_layers.count : " + this.intro_layers.list.length);
       return this.subscribeLayerEvents();
     };
 

@@ -2,8 +2,9 @@ class ScreenDelegateBase_1067x584
 
     constructor:(mainMenuScreen) ->
         @mainMenuScreen = mainMenuScreen      
+        
 
-    afterButtonMenuClicked: (setupFn) =>  
+    afterButtonMenuClicked: (setupFn) =>              
         Utils.delay 0.3, =>
             @mainMenuScreen.destroyCurrentSubMenuScreen()
 

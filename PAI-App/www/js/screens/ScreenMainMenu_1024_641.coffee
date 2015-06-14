@@ -21,6 +21,7 @@ class ScreenMainMenu_1024_641 extends ScreenBase
         @topBarLayer.superLayer = @mainLayer
         @topBarLayer.centerX()
 
+
         @profileLayer = new Layer
             image: 'images/MainMenu-Profile.png'
             width: 514

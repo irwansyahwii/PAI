@@ -1,6 +1,11 @@
 ScreenBase = require("./ScreenBase_1067x584")
 ClickEffect = require("./ClickEffect")
 
+curvemove = 'cubic-bezier(0.2, 0, 0.8, 0.2)'
+curvein = 'cubic-bezier(0, 0, 0.2, 1)'
+curveout = 'cubic-bezier(0.4, 0, 1, 1)'
+
+
 class ScreenMasterProjects_1067x584 extends ScreenBase
     constructor: (options) ->
         super
@@ -43,8 +48,18 @@ class ScreenMasterProjects_1067x584 extends ScreenBase
                 width: 266
                 height: 154
             thumbLayer.superLayer = @mainLayer
+            thumbLayer.index = i - 1
             ClickEffect.addTo thumbLayer
+            thumbLayer.on Events.Click, @onThumbClicked
             @thumbnails.push thumbLayer
+
+        @selectedThumb = null
+
+    onThumbClicked: (mouseEvent, thumbLayer) =>
+        @selectedThumb = thumbLayer
+        @hideAllLayers()
+        if @delegate
+            @delegate.afterThumbClicked(thumbLayer, thumbLayer.index)
 
 
     hideAllLayers: () =>
@@ -82,21 +97,44 @@ class ScreenMasterProjects_1067x584 extends ScreenBase
 
             @thumbnails[i].states.add
                 hidden:
+                    rotation: 0
                     x: 0 + 266 * xIncrement
                     y: @mainLayer.height + 5
                 shown:
+                    rotation: 360
                     x: 0 + 266 * xIncrement
                     y: (@parent_screen.topBarLayer.height + @headerLayer.height )+ 154 * yIncrement
 
+                highlight:                    
+                    rotation: 0                    
+                    x: 0
+                    y: (@parent_screen.topBarLayer.height + @headerLayer.height )
+                    width: @mainLayer.width
+                    height: @mainLayer.height - @parent_screen.topBarLayer.height - @headerLayer.height
+                fadeout:
+                    opacity: 0
+
+
+
             @thumbnails[i].states.switchInstant("hidden")
 
-            xIncrement++
+            xIncrement++    
 
-    animateHideThumb: (thumb, i) =>
-        thumb.states.animationOptions = 
-            time: 0.3
-        Utils.delay (_.random(0, 10) / 10), =>
-            thumb.states.switch("hidden")
+    animateHideThumb: (thumb) =>
+        if (@selectedThumb is null) or  thumb.index isnt @selectedThumb.index
+            thumb.states.animationOptions =             
+                time: 0.3
+                curve: curveout
+            Utils.delay (_.random(0, 10) / 10), =>
+                thumb.states.switch("hidden")
+        else
+            thumb.states.animationOptions =             
+                time: 0.8
+                
+            Utils.delay (_.random(0, 10) / 10), =>
+                thumb.states.switch("highlight")     
+                Utils.delay 0.8, =>
+                    thumb.states.switch("fadeout")
 
     animateShowThumb: (thumb, i) =>
         thumb.states.animationOptions = 
